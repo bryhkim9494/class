@@ -8,11 +8,15 @@ public class SmartPhone {
 
 	int volume = 0; // 속성: 볼륨의 크기 => 변수로 선언
 
+	SmartPhone() {// 생성자
+
+	}
+
 	// 메소드 정의 : 여기 있는 메소드들을 인스턴스 메소드라고함!
 	// 전화 걸기
 	void call(String number) {
 //		int number =119;
-		System.out.println(number+ "전화를 겁니다!");
+		System.out.println(number + "전화를 겁니다!");
 	}
 	// 볼륨을 키우는 기능
 
@@ -51,9 +55,9 @@ public class SmartPhone {
 		// 인스턴스 메소드의 호출 => 참조변수.메소드이름();
 		System.out.println("---------------------------------");
 		sp.call("119");
-		/* 볼륨의 값을 변경하는 방법
-		1. 변수에 직접 대입 X
-		2. 메소드를 통해서 변경하는방법 O */
+		/*
+		 * 볼륨의 값을 변경하는 방법 1. 변수에 직접 대입 X 2. 메소드를 통해서 변경하는방법 O
+		 */
 		System.out.println("현재 볼륨 값 : " + sp.volume);
 		sp.volumeUp();
 		sp.volumeUp();
