@@ -16,8 +16,8 @@ public class SmartPhone {
 //		
 //	}
 
-	// 초기화를 위한 생성자 정의
-
+	//	초기화를 위한 생성자 정의 
+	//	주로 default생성자와 생성자오버로딩1 두개만 만들어서 사용함
 	SmartPhone(String color, float size, int volume) { // 생성자 오버로딩1
 
 		this.color = color; // this를 붙이는 이유는 앞에 color가 인스턴스 변수를 가리키기 만들기 위해서
