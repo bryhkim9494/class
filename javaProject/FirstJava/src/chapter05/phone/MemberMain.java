@@ -6,7 +6,8 @@ public class MemberMain {
 	public static void main(String[] args) {
 
 		Date now = new Date();
-		java.sql.Date
+		java.sql.Date time = new java.sql.Date(0);
+		
 		SmartPhone smartPhone = new SmartPhone();
 
 		Member member1 = new Member("손흥민", "son@gmail.com", 20, "010-0000-0000", smartPhone);
