@@ -21,7 +21,7 @@ public class MemberMain {
 		dataPrint(member2);
 	}
 
-	static void dataPrint(Member member) { // 여기서는 참조형으로 매개변수가 쓰임.
+	static void dataPrint(Member member) { // 여기서는 참조형으로 매개변수가 쓰임 -> 전달해줄때 인스턴스 참조 주소값이 전달됨
 		// Member member = member1;
 		// Member member :매개변수이면서 참조변수이다.
 		member.showData();
