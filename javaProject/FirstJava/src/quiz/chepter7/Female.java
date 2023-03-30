@@ -1,4 +1,4 @@
-package quiz;
+package quiz.chepter7;
 
 public class Female extends Person {
 	int age;
