@@ -28,8 +28,9 @@ public class SmartPhoneImpl2 extends Phone {
 //		p.playMusic();
 //		SmartPhoneImpl2 p2 = new SmartPhoneImpl2("000", "test");
 //				p2.playMusic();
+		System.out.println();
 
-		SmartPhoneImpl2 p2 = (SmartPhoneImpl2) p;
+		SmartPhoneImpl2 p2 = (SmartPhoneImpl2) p; // 형변환
 		p2.playMusic();
 
 	}

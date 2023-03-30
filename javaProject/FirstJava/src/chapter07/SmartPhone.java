@@ -16,6 +16,7 @@ public class SmartPhone extends Phone { //자식클래스 : 좁은의미, 기능
 		SmartPhone sp = new SmartPhone();
 		sp.phoneNumber = "010-0000-0000 ";
 		sp.call();
+		System.out.println();
 		sp.model = "Google";
 		sp.game();
 
