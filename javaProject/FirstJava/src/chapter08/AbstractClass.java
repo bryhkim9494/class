@@ -8,6 +8,8 @@ public abstract class AbstractClass {
 	// 추상메소드 : 완성되지않은 메소드 {} -> ; //// abstract키워드가 필요함
 	abstract void abstractMethod();
 
+	
+	
 	void instanceMethod() {
 		abstractMethod();
 	}
