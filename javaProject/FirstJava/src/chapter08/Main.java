@@ -6,7 +6,14 @@ public class Main {
 //		abstractClass = new AbstractClass(); // 인스턴스 생성과정/// 추상클래스여서 인스턴스 생성 불가
 
 		
-		AbstractClass abstractClass = new AbstractClass();
+		AbstractClass abstractClass = new AbstractClass() {
+			
+			@Override
+			void abstractMethod() {
+				// TODO Auto-generated method stub
+				
+			}
+		};
 //		NewClass class1 = new NewClass();
 		class1.abstractMethod();
 
