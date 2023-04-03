@@ -14,7 +14,7 @@ public class Main {
 				
 			}
 		};
-//		NewClass class1 = new NewClass();
+		NewClass class1 = new NewClass();
 		class1.abstractMethod();
 
 		class1.instanceMethod();
