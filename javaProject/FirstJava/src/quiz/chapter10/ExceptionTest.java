@@ -11,8 +11,10 @@ public class ExceptionTest {
 		try {
 			for (int i = 0; i < id.length(); i++) {
 				char c = id.charAt(i);
+//				System.out.println(id.length());
+//				System.out.println( id.charAt(i));
 				if (!(c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c >= '0' && c <= '9')) {
-					BadIdInputException e = new BadIdInputException("사용자의 입력 값이 올바르지 않습니다.");
+					BadIdInputException e = new BadIdInputException();
 					throw e;
 				}
 			}
@@ -23,17 +25,17 @@ public class ExceptionTest {
 		}
 	}
 
-	static boolean checkId(String id) {
-
-		boolean result = true;
-		for (int i = 0; i < id.length(); i++) {
-			char c = id.charAt(i);
-			if (!(c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c >= '0' && c <= '9')) {
-				result = false;
-				break;
-			}
-		}
-
-		return result;
-	}
+//	static boolean checkId(String id) {
+//
+//		boolean result = true;
+//		for (int i = 0; i < id.length(); i++) {
+//			char c = id.charAt(i);
+//			if (!(c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c >= '0' && c <= '9')) {
+//				result = false;
+//				break;
+//			}
+//		}
+//
+//		return result;
+//	}
 }
