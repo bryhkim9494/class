@@ -33,7 +33,7 @@ public class ExceptionTest2 {
 			e.printStackTrace();
 		} catch (InputMismatchException e) {
 			System.out.println("숫자만 입력하세요!");
-		} catch (Exception e) { // 가장 상위타입은 제일 아래에 적는다
+		} catch (Exception e) { // 가장 상위타입(=Exception)은 제일 아래에 적는다
 			System.out.println("예외가 발생했습니다.");
 			System.out.println();
 			System.out.println(e.getMessage());

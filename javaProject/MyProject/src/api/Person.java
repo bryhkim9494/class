@@ -23,7 +23,7 @@ public class Person {
 		// personNumber를 비교하고 결과값을 result에 대입.
 		if (obj != null && obj instanceof Person) {// null값이 아닌 상태에서 형변환 하기전에 형변환 여부 체크해야함
 			Person p = (Person) obj;
-			result = this.personNumber.equals(p.personNumber);
+			result = this.personNumber.equals(personNumber);
 		}
 		return result;
 	}
