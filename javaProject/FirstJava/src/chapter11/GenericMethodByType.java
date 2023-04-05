@@ -3,7 +3,7 @@ package chapter11;
 public class GenericMethodByType {
 
 	public <T> void introduce(T t) {
-		System.out.println("안녕하세요 . " + t.toString());
+		System.out.println("안녕하세요 " + t.toString());
 	}
 
 	public static void main(String[] args) {

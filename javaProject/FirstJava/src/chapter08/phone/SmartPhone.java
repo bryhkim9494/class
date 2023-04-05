@@ -3,6 +3,13 @@ package chapter08.phone;
 public class SmartPhone implements Phone{
 
 	boolean power;// 최초 초기값 false
+	
+	
+	
+	public SmartPhone() {
+		super();
+	}
+
 	@Override
 	public void call() {
 		// TODO Auto-generated method stub
