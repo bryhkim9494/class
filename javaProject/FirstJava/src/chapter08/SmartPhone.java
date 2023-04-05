@@ -10,6 +10,10 @@ public class SmartPhone extends Phone {
 
 	}
 
+	public SmartPhone(String phoneNumber) {
+		super(phoneNumber);
+	}
+
 	@Override
 	void turnOn() {
 		System.out.println(model + "모델에 맞게 전원을 켰습니다.");
