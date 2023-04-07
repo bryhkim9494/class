@@ -22,17 +22,19 @@ public class setMain {
 		myTeam.add(new FootballPlayer("손흥민", 17, "토트넘", 30));
 		
 		System.out.println("나의 팀 선수 정보 ");
-		for (FootballPlayer player : myTeam) {
+//		for (FootballPlayer player : myTeam) {
 //			player.showInfo();
 //			player.toString();
-		}
-		System.out.println(myTeam.toString());
+//		}
+//		System.out.println(myTeam.toString());
 
 //		System.out.println("===================================");
 //		myTeam.stream().forEach((FootballPlayer p) -> p.showInfo());
 //		System.out.println("===================================");
 //		myTeam.stream().forEach(System.out::println);
+		myTeam.stream().forEach((FootballPlayer p) -> p.showInfo());
 
+		myTeam.stream().forEach(System.out::println);
 	}
 
 }
