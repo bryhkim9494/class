@@ -35,7 +35,7 @@ select ename,deptno from emp where deptno between 20 and 30 order by ename desc;
 
 
 
--- 8. 사원의 급여가 2000에서 3000사이에 포함되고 부서번호가 20 또는 30인 사원의 이름, 급여와 부서번호를 출력, 이름순(오름차순)으로 출력하시오.??
+-- 8. 사원의 급여가 2000에서 3000사이에 포함되고 부서번호가 20 또는 30인 사원의 이름, 급여와 부서번호를 출력, 이름순(오름차순)으로 출력하시오.
 select ename,sal, deptno from emp where (sal between 2000 and 3000 )and (deptno =20 or deptno=30) order by ename asc, sal asc, deptno asc;
 
 --9. 1981년도에 입사한 사원의 이름과 입사일을 출력하시오. (like 연산자와 와일드카드 사용)
@@ -59,7 +59,7 @@ select * from emp where ename like '__R%';
 ​
 -- 13. 이름에 A와 E를 모두 포함하고 있는 사원의 이름을 표시하시오.
 
-select * from emp where ename like '%A%'and ename like '%E%';
+select * from emp where ename like '%A%' and ename like '%E%';
 
 -- 14. 담당업무가 CLERK, 또는 SALESMAN이면서 급여가 $1600, $950 또는 $1300이 아닌 사원의 이름, 담당업무, 급여를 출력하시오.
 select ename, job, sal from emp where job = 'CLERK'or job='SALESMAN'and sal not in (1600,950,1300);
@@ -70,9 +70,4 @@ select ename, sal, comm from emp where comm >=500;
 
 
 
-
-
-
-
-select * from emp;
 ​
