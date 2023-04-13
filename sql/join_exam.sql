@@ -43,7 +43,7 @@ order by e.empno desc
 
 -- 40. SELF JOIN을 사용하여 지정한 사원의 이름, 부서번호, 지정한 사원과 동일한 부서에서 근무하는 사원을 출력하시오. ( SCOTT )
 
-select *
+select e.ename,m.deptno
 
 from emp e , emp m
 
@@ -52,18 +52,20 @@ from emp e , emp m
 select * from emp;
 
 
+-- 41. SELF JOIN을 사용하여 WARD 사원보다 늦게 입사한 사원의 이름과 입사일을 출력하시오.
+select e.hiredate, m.ename,m.hiredate
+
+from emp e, emp m
+where e.ename='WARD' and m.hiredate > e.hiredate -- where 조건절에서  e.ename='WARD' 를 치면 왼쪽 테이블이 다 WARD에 대한 내용으로 출력됨 -> 그리고 and를 걸어서 e.hiredate는 전부다 81/02/22니까 m.hiredate가 더 크다고 조건을 걸면된다.
+;
 
 
+-- ​42. SELF JOIN 을 사용하여 관리자보다 먼저 입사한 모든 사원의 이름 및 입사일을 관리자의 이름 및 입사일과 함께 출력하시오.
 
+select e.ename,e.hiredate,m.ename,m.hiredate
 
+from emp e, emp m
+where e.mgr = m.empno and e.hiredate < m.hiredate
 
-
-
-
-
-
-
-
-
-
-
+;
+select * from emp;
