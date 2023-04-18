@@ -40,7 +40,7 @@ insert into phoneInfo_basic values (111111,'손흥민','010-0000-0000','123@123.
 insert into phoneInfo_basic values (222222,'박지성','010-1111-0000','222@123.com','경기','2022.01.01');
 insert into phoneInfo_basic values (333333,'이강인','010-2222-0000','333@123.com','인천','2021.01.01');
 insert into phoneInfo_basic values (444444,'김민재','010-3333-0000','444@123.com','부산','2020.01.01');
-insert into phoneinfo_basic (fr_name,idx,fr_phonenumber,fr_email,fr_address,fr_regdate) values ('황희찬', 555555, '010-4444-0000','555@123.com','서울','2019.01.01');
+insert into phoneinfo_basic (fr_name,idx,fr_phonenumber,fr_email,fr_address,fr_regdate) values ('황희찬', 555555, '010-4444-0000','555@123.com','서울',default);
 insert into phoneinfo_basic (fr_name,idx,fr_phonenumber,fr_address,fr_regdate) values ('차범근', 666666, '010-4444-0000','서울','2019.01.01');
 --update
 update phoneinfo_basic
@@ -49,6 +49,7 @@ where idx = 222222
 ;
 --delete,select
 delete from phoneinfo_basic where idx=(select idx from phoneinfo_basic where idx=111111);
+delete from phoneinfo_basic where idx=555555;
 --select
 select idx from phoneinfo_basic where idx=111111;
 
