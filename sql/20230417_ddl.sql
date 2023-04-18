@@ -2,7 +2,7 @@
 -- ddl
 
 
--- 형태) create table 테이블이름 (
+-- 형태) create table 테이블이름 ( -- 스키마: 컬럼들의 집합 /// 아래에 컬럼이름  타입 [제약조건],컬럼이름  타입 [제약조건],컬럼이름  타입 [제약조건]........ 이런것들의 집합이 스키마이다.
     --  컬럼이름  타입 [제약조건],
     --  컬럼이름  타입 [제약조건],
     --  컬럼이름  타입 [제약조건],
@@ -100,8 +100,9 @@ select * from emp01;
 -- 테이블의 모든 행을 삭제 : truncate table 테이블이름
 select *from emp02;
 truncate table emp02;
+
 select * from emp03;
-delete from emp03; -- delete : 행단위삭제 -> commit 을 해야 완전히 적용됨 -> 실수했으면 rollback으로 돌아갈수있음 but drop, truncate는 자동commit되서 돌이킬수없음
+delete from emp03; -- delete(DML) : 행단위삭제, 물리적인 반영이 바로 안됨 -> commit 을 해야 완전히 적용됨 -> 실수했으면 rollback으로 돌아갈수있음 but drop, truncate는 자동commit되서 돌이킬수없음
 rollback;
 -- 테이블이름 변경
 -- rename 이전이름 to 새이름
@@ -248,9 +249,9 @@ create table emp01(
     deptno number(2), -- 외래키
     hiredate date default sysdate,
     -- 테이블레벨제약
-    constraint PK_EMP01_EMPNO  PRIMARY KEY(EMPNO), 
+    constraint PK_EMP01_EMPNO  PRIMARY KEY(EMPNO),
     constraint UK_EMP01_JOB unique (job),
-    constraint FK_EMP01_DEPTNO FOREIGN KEY (deptno) references dept(deptno)    
+    constraint FK_EMP01_DEPTNO FOREIGN KEY (deptno) references dept(deptno)
 );
 
 desc emp01;
