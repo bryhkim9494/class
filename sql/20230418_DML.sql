@@ -1,6 +1,6 @@
 -- 2023.04.18
 -- DML: 입력, 수정 ,삭제 
--- Create(=insert) , read(=select), Update(=update) ,Delete(=delete) => CRUD
+-- Create(=insert) , Read(=select), Update(=update) ,Delete(=delete) => CRUD
 
 -- INSERT : 데이터를 행단위로 입력
 
@@ -11,7 +11,7 @@ create table dept01 (
     loc varchar2(10)
 );
 desc dept01;
--- insert into 테이블이름(컬럼, 컬럼, ....) values (데이터, 데이터, ....)
+-- insert into 테이블이름 (컬럼, 컬럼, ....) values (데이터, 데이터, ....)
 insert into dept01 (deptno,     dname,   loc     ) 
             values (10,         'test','test-LOC');
 select * from dept01;
@@ -30,7 +30,7 @@ insert into dept01 (deptno,danme) values (30,'QA');-- sql 오류에서 나오는
 -- 모든 컬럼에 데이터를 입력하는 경우 -> 컬럼명을 생략하고 사용
 insert into dept01 values (50,'기획팀','대전');
 
--- null값의 입력
+-- null값 입력하는 방법
 -- 명시적 입력, 암묵적 입력
 insert into dept01 values (60,'TEST',null); --  명시적 입력
 insert into dept01 values (99,'TEST111',''); --  명시적 입력
@@ -124,9 +124,10 @@ where deptno=20
 
 update dept02
 set (dname ,loc) = (select dname, loc from dept02 where deptno=30)
-where deptno=20
+where deptno=40
 ;
 select * from dept02;
+
 -- delete: 테이블의 행단위 삭제 
 -- delete from 테이블이름 where 행을선택하는조건
 
@@ -138,7 +139,7 @@ delete from dept02 where deptno=30;
 select *from emp01;
 -- 사원 테이블에서 부서명이 SALES인 사원을 모두 삭제해봅시다.
 select deptno from dept02 where dname='SALES';
-delete from emp01 
+delete from emp01
 where deptno=(select deptno from dept02 where dname='SALES');
 commit;
 delete from emp;
@@ -152,10 +153,15 @@ create sequence seq_dept_deptno
 start with 10
 increment by 10
 ;
---자동 생성된 값 : 시퀀스객체이름.nextval
-select seq_dept_deptno.nextval
-from dual;
 
+-- 자동 생성된 값 : 시퀀스객체이름.nextval
+select seq_dept_deptno.nextval
+from dual; 
+select * from dept01;
+insert into dept01 values(seq_dept_deptno.nextval, 'test이름', 'test위치');
+
+select seq_dept_deptno.currval
+from dual;
 
 
 
