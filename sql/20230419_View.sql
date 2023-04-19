@@ -44,7 +44,7 @@ select rownum , ename,hiredate from emp_hiredate_view where rownum <= 3 ;--  뷰
 select rownum,ename,hiredate from (select rownum ,ename,hiredate from emp order by hiredate)-- 인라인뷰
 where rownum <=3
 order by hiredate; -- 위에랑 다르게 rownum을 재정렬 하게됨
-
+select to_char(hiredate,'YYYY') from emp;
 
 
 
