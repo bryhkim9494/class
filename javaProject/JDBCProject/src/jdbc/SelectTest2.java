@@ -65,9 +65,6 @@ public class SelectTest2 {//PreparedStatement
 			System.out.println("연결 실패......");
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+
 	}
 }
