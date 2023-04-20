@@ -30,12 +30,12 @@ public class SelectTest {// select할때는 이대로만 하면됨 (statement)
 
 			Statement stmt = conn.createStatement();
 			// sql
-			String sql = "select deptno,dname,loc from dept";
+			String sql = "select deptno,dname,loc from dept"; // 여기 부분(sql구문)만 바뀌고 나머지는 다 똑같이 재활용함.
 
 //			4. select의 결과 데이터는 ResultSet객체로 받는다.
 //			select 실행 메소드 : executeQuery(String sql);
 
-			ResultSet rs = stmt.executeQuery(sql);
+			ResultSet rs = stmt.executeQuery(sql); //select일때 executeQuery메소드사용하고 나머지 insert,update,delete일때는 executeUpdate메소드 사용
 //			5. ResultSet 객체에서 데이터 추출
 
 			while (rs.next()) {

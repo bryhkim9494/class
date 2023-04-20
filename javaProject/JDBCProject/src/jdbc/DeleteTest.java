@@ -33,12 +33,12 @@ public class DeleteTest {
 
 			// insert sql
 			String sql = "delete from dept where deptno=?"; // 전체를 다 못바꿈? update? , deptno 는 pk여서 0또는 1-> 컬럼의 특징?
-															// primary key니까 0개의행 1개의행
+															// dept테이블에서 deptno는 primary key니까 0개의행 1개의행
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, 50);
 
 			// dml은 다 똑같이 진행됨 (insert ,update,delete)
-			int result = pstmt.executeUpdate();
+			int result = pstmt.executeUpdate(); 
 
 			if (result == 1) { // 조건이 맞지않으면 0이나옴
 				System.out.println("데이터가 삭제되었습니다.");

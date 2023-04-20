@@ -34,7 +34,7 @@ public class InsertTest {
 			pstmt.setInt(1, 50);
 
 			pstmt.setString(3, "서울");
-			int result = pstmt.executeUpdate();
+			int result = pstmt.executeUpdate(); //executeUpdate메소드가 하는 역할은 DML실행요청하고 결과반환을함
 			if (result > 0) {
 				System.out.println("데이터가 입력되었습니다.");
 			}

@@ -31,7 +31,8 @@ public class SelectTest2 {//PreparedStatement
 			
 			
 			//sql
-			String sql = "select * from dept where deptno=?"; // ? 2개를 사용해서 각각의 아래쪽에 ? 파라미터 설정 부분에서 받는다./ 
+			String sql = "select * from dept where deptno=?"; // ? 2개를 사용해서 각각의 아래쪽에 ? 파라미터 설정 부분에서 받는다./ ?가 파라미터 역할을함 /stmt랑 pstmt랑 순서가 약간 다름
+			//prepared는 파라미터를 사용해서 sql을 완성시킴
 			PreparedStatement pstmt = conn.prepareStatement(sql);//만듬
 			//? 파라미터 설정
 			pstmt.setInt(1, 10);
@@ -46,7 +47,7 @@ public class SelectTest2 {//PreparedStatement
 //			while (rs.next()) {
 //				System.out.println(rs.getInt(1)+"\t" +rs.getString(2)+"\t"+rs.getString(3));
 //			}
-			if (rs.next()) { //위에 while이랑 달리 if를 씀 
+			if (rs.next()) { //위에 while이랑 달리 if를 씀 (while말고 if를 쓸때는 예상되는 결과가 한 개를 초과해서 나오지 않을때임)
 				System.out.println(rs.getInt(1)+"\t" +rs.getString(2)+"\t"+rs.getString(3));
 			}
 			
