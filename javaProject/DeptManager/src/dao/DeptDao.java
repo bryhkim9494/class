@@ -10,6 +10,7 @@ import java.util.List;
 
 import domain.Dept;
 
+//sql을 실행할수있게 기능들을 만들어 놓은 클래스가 DAO이다.
 public class DeptDao {
 	
 	// DAO: sql을 실행하는 메소드만 가지는 클래스

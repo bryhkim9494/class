@@ -14,8 +14,14 @@ public class DeptListController {
 
 	DeptListService listService;
 
-	public DeptListController() {
-		this.listService = new DeptListService(new DeptDao());
+	private DeptListController() {
+		this.listService = DeptListService.getInstance();
+	}
+
+	private static DeptListController controller = new DeptListController();
+
+	public static DeptListController getInstance() {
+		return controller;
 	}
 
 	public void getDeptList() {
@@ -37,7 +43,7 @@ public class DeptListController {
 		}
 
 	}
-	
+
 	public static void main(String[] args) {
 		DeptListController listController = new DeptListController();
 		listController.getDeptList();

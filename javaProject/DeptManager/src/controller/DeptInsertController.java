@@ -8,8 +8,14 @@ public class DeptInsertController {
 
 	DeptInsertService insertService;
 
-	public DeptInsertController() {// 생성자
-		this.insertService = new DeptInsertService();
+	private DeptInsertController() {// 생성자
+		this.insertService = DeptInsertService.getInstance();
+	}
+
+	private static DeptInsertController controller = new DeptInsertController();
+
+	public static DeptInsertController getInstane() {
+		return controller;
 	}
 
 	public void insertDept() {
