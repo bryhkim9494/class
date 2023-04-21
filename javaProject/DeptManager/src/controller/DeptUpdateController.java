@@ -7,7 +7,7 @@ import service.DeptListService;
 import service.DeptSearchService;
 import service.DeptUpdateService;
 
-public class DeptUpdateController {
+public class DeptUpdateController implements Controller {
 
 	DeptListService listService;
 	DeptSearchService searchService;
@@ -28,7 +28,7 @@ public class DeptUpdateController {
 		return controller;
 	}
 
-	public void updateDept() {
+	public void process() {
 		// 1. 수정하고자하는 데이터를 사용자로 부터 받아서 => Dept
 		Dept newDept = inputUpdateDept();
 		// 2. Service 클래스에 Dept를 전달해서 수정처리하고 결과를 반환( 결과는 1 or 0)

@@ -4,7 +4,7 @@ import domain.Dept;
 import main.DeptManagerMain;
 import service.DeptSearchService;
 
-public class DeptSearchController {
+public class DeptSearchController implements Controller {
 
 	// Service
 	DeptSearchService searchService;
@@ -20,7 +20,7 @@ public class DeptSearchController {
 		return controller;
 	}
 
-	public void searchDept() {
+	public void process() {
 		// view : 검색할 부서번호 사용자로부터 받는 화면
 		int deptno = getDeptNo();
 
