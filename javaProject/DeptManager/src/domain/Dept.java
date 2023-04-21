@@ -4,7 +4,7 @@ package domain;
 
 // Java Beans 특징: 모든 변수가 private처리되어야하니까 getter/setter메소드가 있어야함, 기본생성자가 반드시 존재해야함!
 
-public class Dept {
+public class Dept { // Dept클래스:  데이터(deptno,dname,loc)를 저장하는 목적 
 
 	private int deptno; // 컬럼이름과 동일하게!!!
 	private String dname;

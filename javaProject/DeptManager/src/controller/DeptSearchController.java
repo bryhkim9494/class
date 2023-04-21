@@ -25,7 +25,7 @@ public class DeptSearchController {
 		printData(dept);
 		
 	}
-	// 결과를 출력하는 화면
+	// 결과를 출력하는 화면(View)
 	public void printData(Dept dept) {
 		System.out.println("검색 결과");
 		System.out.println("--------------------------------");
@@ -38,7 +38,7 @@ public class DeptSearchController {
 	
 	
 	
-	// 사용자로부터 번호를 입력받는 화면
+	// 사용자로부터 번호를 입력받는 화면(View)
 	public int getDeptNo() {
 		System.out.println("검색을 시작합니다.");
 		System.out.println("검색할 부서번호를 입력하세요>>");
