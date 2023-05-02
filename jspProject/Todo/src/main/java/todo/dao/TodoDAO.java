@@ -27,6 +27,25 @@ public class TodoDAO {
 	// TodoDTO 리스트를 반환하는 메소드
 	public List<TodoDTO> selectByAll(Connection conn){
 		
+		
+		// RequestTodo 데이터를 받아서 insert처리해주고 결과를반환
+		public int insertTodo(Connection conn, RequestTodo todo) {
+			
+			PreparedStatement pstmt = null;
+			
+			return 1;
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<TodoDTO> list = null;
@@ -77,6 +96,9 @@ public class TodoDAO {
 	}
 	
 	public static void main(String[] args) throws SQLException {
+		
+		
+		
 		
 		TodoDAO dao = TodoDAO.getInstance();
 		Connection conn = ConnectionProvider.getConnection();
