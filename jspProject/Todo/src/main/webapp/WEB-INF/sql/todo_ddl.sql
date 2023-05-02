@@ -4,10 +4,4 @@ CREATE TABLE `tbl_todo` (
   `duedate` date DEFAULT (curdate()),
   `finished` tinyint NOT NULL DEFAULT '0',
   PRIMARY KEY (`tno`)
-) ;
-
-
-
-
-
-
+) 

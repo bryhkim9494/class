@@ -18,9 +18,10 @@ import todo.service.TodoViewService;
 public class TodoReadController extends HttpServlet {
 	
 	
-	TodoViewService viewService;
+TodoViewService viewService;
+	
 	public TodoReadController() {
-		this.viewService = TodoViewService.getInsance();
+		this.viewService = TodoViewService.getInstance();
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +32,7 @@ public class TodoReadController extends HttpServlet {
 		int no = Integer.parseInt(noStr);
 		
 		// no 값으로 Sevice를 통해서 Todo 정보를 받아온다!
-		TodoDTO todo = viewService.getTodo(no);
+		TodoDTO todo = viewService.getTodo(no); // no = 2
 		
 		request.setAttribute("todo", todo);
 		
@@ -39,6 +40,5 @@ public class TodoReadController extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/todo/read.jsp");
 		dispatcher.forward(request, response);
 	}
-
 
 }

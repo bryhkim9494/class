@@ -9,12 +9,16 @@ import todo.domain.TodoDTO;
 import todo.util.ConnectionProvider;
 
 public class TodoListService {
+	
 	TodoDAO dao;
 
-	public TodoListService() {
+	private TodoListService() {
 		this.dao = TodoDAO.getInstance();
 	}
-	
+	private static TodoListService service =new TodoListService();
+	public static TodoListService getInstance() {
+		return service;
+	}
 	public List<TodoDTO> getList(){
 		
 		// 데이터 처리
@@ -50,7 +54,6 @@ public class TodoListService {
 		return list;
 		
 	}
-	
 
 }
 

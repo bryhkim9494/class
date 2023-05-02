@@ -4,28 +4,27 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import todo.dao.TodoDAO;
-import todo.domain.RequestTodo;
+import todo.domain.TodoDTO;
 import todo.util.ConnectionProvider;
 
-public class TodoInsertService {
+public class TodoUpdateService {
 
-
+	
 	TodoDAO dao;
 	
-	private static TodoInsertService service = new TodoInsertService();
-	
-	private TodoInsertService() {
+	private TodoUpdateService() {
 		this.dao = TodoDAO.getInstance();
 	}
 	
-	public static TodoInsertService getInstance() {
+	private static TodoUpdateService service = new TodoUpdateService();
+	
+	public static TodoUpdateService getInstance() {
 		return service;
 	}
 	
-	// 입력의 요청을 처리하는 메소드
-	// RequestTodo 전달받고 Dao 메소드에 요청
-	
-	public int register(RequestTodo todo) {
+	// TodoDTO 데이터를 받고
+	// dao update 메소드로 전달해서 처리
+	public int modify(TodoDTO todo) {
 		
 		Connection conn = null;
 		int result = 0;
@@ -33,13 +32,12 @@ public class TodoInsertService {
 		try {
 			conn = ConnectionProvider.getConnection();
 			
-			result = dao.insertTodo(conn, todo);		
+			result = dao.updateByTno(conn, todo);
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			
 			if(conn != null) {
 				try {
 					conn.close();
@@ -50,7 +48,15 @@ public class TodoInsertService {
 			}
 		}
 		
+		
 		return result;
+		
 	}
-
+	
+	
+	
+	
+	
+	
+	
 }

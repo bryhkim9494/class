@@ -2,16 +2,14 @@ package todo.domain;
 
 public class RequestTodo {
 
+
+
 	private String todo;
 	private String duedate;
 	
-	public RequestTodo() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	public RequestTodo() {}
 
 	public RequestTodo(String todo, String duedate) {
-		super();
 		this.todo = todo;
 		this.duedate = duedate;
 	}

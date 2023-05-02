@@ -1,7 +1,6 @@
 package todo.domain;
 
 public class Todo {
-
 	private int no;
 	private String todo;
 	private String duedate;
@@ -54,6 +53,7 @@ public class Todo {
 	public String toString() {
 		return "Todo [no=" + no + ", todo=" + todo + ", duedate=" + duedate + ", complete=" + complete + "]";
 	}
+	
 	
 	
 

@@ -4,42 +4,36 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 import todo.dao.TodoDAO;
-import todo.domain.RequestTodo;
 import todo.util.ConnectionProvider;
 
-public class TodoInsertService {
-
-
+public class TodoDeleteService {
 	TodoDAO dao;
-	
-	private static TodoInsertService service = new TodoInsertService();
-	
-	private TodoInsertService() {
+
+	private TodoDeleteService() {
 		this.dao = TodoDAO.getInstance();
 	}
-	
-	public static TodoInsertService getInstance() {
+	private static TodoDeleteService service = new TodoDeleteService();
+	public static TodoDeleteService getInstance() {
 		return service;
 	}
-	
-	// 입력의 요청을 처리하는 메소드
-	// RequestTodo 전달받고 Dao 메소드에 요청
-	
-	public int register(RequestTodo todo) {
-		
+
+	// tno 전달받고
+	// dao delete 메소드에 요청
+	public int delete(int tno) {
+
 		Connection conn = null;
 		int result = 0;
-		
+
 		try {
 			conn = ConnectionProvider.getConnection();
-			
-			result = dao.insertTodo(conn, todo);		
-			
+
+			result = dao.deleteByTno(conn, tno);
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			
+
 			if(conn != null) {
 				try {
 					conn.close();
@@ -49,8 +43,9 @@ public class TodoInsertService {
 				}
 			}
 		}
-		
+
 		return result;
+
 	}
 
 }
