@@ -9,7 +9,7 @@
 <body>
 
 <h1>Todo 상세보기</h1>
-
+${todo} }
 
 	번호 : <input type="text" name="no" value="${no}" readonly> <br>
 	할일 : <input type="text" name="todo" value="${todo}" readonly> <br>

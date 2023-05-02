@@ -10,10 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import todo.domain.RequestTodo;
+import todo.service.TodoInsertService;
 
 
 @WebServlet("/todo/register")
 public class TodoRegisterController extends HttpServlet {
+	
+	TodoInsertService insertService;
+	public TodoRegisterController() {
+		
+		this.insertService = TodoInsertService.getInstance();
+	}
 	
 	protected void doGet(
 			HttpServletRequest request, 
@@ -45,7 +52,15 @@ public class TodoRegisterController extends HttpServlet {
 		//System.out.println(todo + " : " + dueDate);
 		
 		RequestTodo requestTodo = new RequestTodo(todo,dueDate);
-		
+		// Service에 요청
+		int result = insertService.register(requestTodo);
+		if (result > 0) {
+			System.out.println("입력 성공...");
+		} else {
+			System.out.println("입력 실패");
+			
+			
+		}
 		
 		// redirect : "list"
 		response.sendRedirect("list"); // 외부에서 접속하는 URI
