@@ -3,20 +3,17 @@ package todo.util;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
-public class Loader {
+public class Loader extends HttpServlet {
 
-
-//	@Override
-	public void init() throws ServletException {
-		System.out.println("Loader...init()..");
-		// 데이터베이스 드라이버 로드
+	@Override
+	public void init() throws ServletException{
+		System.out.println("Loader...init().....");
 		try {
-			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			
-			System.out.println("mysql 드라이버 로드...");
+			System.out.println("Complete Mysql Driver Load");
 		} catch (ClassNotFoundException e) {
-			System.out.println("드라이버 로드 실패....");
+			// TODO Auto-generated catch block
+			System.out.println("Fail Driver Load...");
 			e.printStackTrace();
 		}
 	}

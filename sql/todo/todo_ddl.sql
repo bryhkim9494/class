@@ -8,7 +8,7 @@ CREATE TABLE `tbl_todo` (
 
 
 -- DML insert
-INSERT INTO tbl_todo (todo, duedate) VALUES ('JSP 공부3', '2023-05-04');
+INSERT INTO tbl_todo (todo, duedate) VALUES ('JSP 공부11', '2023-05-04');
 -- INSERT INTO tbl_todo (todo, duedate) VALUES (?, ?)
 
 -- DML update
