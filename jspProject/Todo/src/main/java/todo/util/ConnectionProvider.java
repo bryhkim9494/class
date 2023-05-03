@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionProvider {
-
 	
 //	static {
 //		try {
@@ -30,4 +29,5 @@ public class ConnectionProvider {
 		System.out.println(ConnectionProvider.getConnection());
 		
 	}
+
 }

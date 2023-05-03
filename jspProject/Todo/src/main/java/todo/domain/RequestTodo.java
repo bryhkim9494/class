@@ -2,8 +2,6 @@ package todo.domain;
 
 public class RequestTodo {
 
-
-
 	private String todo;
 	private String duedate;
 	
@@ -37,4 +35,5 @@ public class RequestTodo {
 	
 	
 	
+
 }

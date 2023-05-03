@@ -12,7 +12,7 @@ import todo.domain.TodoDTO;
 import todo.util.ConnectionProvider;
 
 public class TodoDAO {
-
+	
 	// 싱글톤
 	// 1. 생성자 - private
 	private TodoDAO() {}
@@ -24,6 +24,10 @@ public class TodoDAO {
 	public static TodoDAO getInstance() {
 		return dao;
 	}
+	
+	
+	
+	
 	
 	// TodoDTO 리스트를 반환하는 메소드
 	public List<TodoDTO> selectByAll(Connection conn){
@@ -123,10 +127,18 @@ public class TodoDAO {
 		
 		return todo;
 	}
-	// rs -> TodoDTO 생성 -> 반환
+	
+	// rs -> TodoDTO 생성 => 반환
 	private TodoDTO makeTodoDTO(ResultSet rs) throws SQLException {
-		return new TodoDTO(rs.getInt("tno"), rs.getString("todo"),rs.getString("duedate") ,rs.getBoolean("finished"));
+		
+		return new TodoDTO(
+				rs.getInt("tno"), 
+				rs.getString("todo"), 
+				rs.getString("duedate"), 
+				rs.getBoolean("finished"));
+		
 	}
+	
 	
 	
 	// RequestTodo 데이터를 받아서 insert 처리
@@ -206,42 +218,43 @@ public class TodoDAO {
 	}
 	
 	
-	
-	// 		tno 전달받고
-		// delete
-		public int deleteByTno(Connection conn, int tno) {
-
-			PreparedStatement pstmt = null;
-			int result = 0;
-
-			// delete Sql
-			String sql = "delete from tbl_todo where tno=?";
-
-			try {
-				pstmt = conn.prepareStatement(sql);
-				//set
-				pstmt.setInt(1, tno);
-
-				// result
-				result = pstmt.executeUpdate();
-
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} finally {
-
-				if(pstmt != null) {
-					try {
-						pstmt.close();
-					} catch (SQLException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
+	// tno 전달받고
+	// delete
+	public int deleteByTno(Connection conn, int tno) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		// delete Sql
+		String sql = "delete from tbl_todo where tno=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			//set
+			pstmt.setInt(1, tno);
+			
+			// result
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
-
-			return result;		
 		}
+		
+		return result;		
+	}
+	
+	
 	
 	
 	
@@ -269,19 +282,26 @@ public class TodoDAO {
 		
 		
 		// update test
-		dao.updateByTno(conn, new TodoDTO(2, "청소 후 휴식", "2023-05-03", true));
-		System.out.println("수정완료...");
+//		dao.updateByTno(conn, new TodoDTO(2, "청소 후 휴식", "2023-05-03", true));
+//		System.out.println("수정완료...");
 		
-		
-
 		// delete test
 		dao.deleteByTno(conn, 9);
 		System.out.println("삭제완료");
+		
+		
 		
 				
 		conn.close();
 		
 	}
 	
+	
 
 }
+
+
+
+
+
+
