@@ -3,34 +3,32 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
-
-    <!--root-context.xml의 경로-->
-    <context-param>
+    
+    <context-param> <!-- context-param 쪽에서는 root-context를 읽음-->
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/spring/root-context.xml</param-value>
-
-
-    </context-param>        <!--여기까지 웹프로젝트 메뉴얼상 spring 설정파일 등록-->
-
+    </context-param>
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
-    <servlet>
+    <servlet> <!-- servlet 쪽에서는 servlet-context를 읽음-->
         <servlet-name>appServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/spring/servlet-context.xml</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>1</load-on-startup> <!--1을 반드시 써줘야함-->
     </servlet>
 
     <servlet-mapping>
         <servlet-name>appServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>      <!-- 여기까지 Servlet 등록 -->
+        <url-pattern>/</url-pattern> <!-- /의 뜻은 context경로 이후로 들어오는 모든경로를 의미함-->
+    </servlet-mapping>
+
+
 
 
 
