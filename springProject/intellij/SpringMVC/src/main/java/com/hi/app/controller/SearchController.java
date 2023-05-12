@@ -20,7 +20,7 @@ public class SearchController {
             @RequestParam(value = "tno", required = false) String tno,
             @RequestParam(value = "page", defaultValue = "1") int page,
             HttpServletRequest request,
-            @ModelAttribute("req") UserRequest userRequest
+            @ModelAttribute("req") UserRequest userRequest // UserRequest userRequest 커멘드객체라고도함
     ) {
 
         log.info("/search/search1 ...");

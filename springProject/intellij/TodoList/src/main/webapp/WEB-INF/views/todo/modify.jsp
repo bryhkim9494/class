@@ -1,20 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: hi
-  Date: 2023-05-11
-  Time: 오전 11:58
+  Date: 2023-05-12
+  Time: 오전 11:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Todo Read</title>
+    <title>result page</title>
 </head>
 <body>
-<h1>Todo 보기</h1>
-<hr>
-<h3>${todo}</h3>
-<a href="/todo/modify">수정</a> <br>
-<a href="/todo/delete?tno=11">삭제</a>
+<h1>modifyData : ${modifyData}</h1>
+<%--<h1></h1>--%>
 </body>
 </html>
