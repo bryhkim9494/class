@@ -16,7 +16,7 @@ public class HelloController {
         //view 경로를 설정(지정)
         mav.setViewName("hello"); // "hello"라는 경로는 /WEB-INF/views/hello.jsp이다.
         // Service에 요청 -> 응답 데이터를 공유
-        mav.addObject("greeting","Hello~!!!"); // view로 전달할 데이터 설정
+        mav.addObject("greeting", "Hello~!!!"); // view로 전달할 데이터 설정
 
         return mav;
 

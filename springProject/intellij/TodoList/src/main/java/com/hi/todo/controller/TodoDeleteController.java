@@ -18,7 +18,6 @@ public class TodoDeleteController {
         log.info("삭제 요청 번호 : " + tno);
 
 
-
         return "redirect:/todo/list";
     }
 }

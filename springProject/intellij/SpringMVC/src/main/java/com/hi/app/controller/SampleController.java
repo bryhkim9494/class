@@ -18,26 +18,24 @@ public class SampleController {
         // /WEB-INF/views/sample/sample1.jsp
 
 
-
     }
+
     @RequestMapping("/sample/sample2")
     public void getPage2(Model model) {
         log.info("/sample/sample2...   getPage2()");
         // Model 객체는 view와 공유할 수 있는 데이터를 저장하는 객체
         // 매개변수에 Model model 형식으로 선언해주면 메소드 호출 시에 현재 Model 객체를 전달해준다!
-        model.addAttribute("msg","안녕하세요");
+        model.addAttribute("msg", "안녕하세요");
 
     }
+
     @RequestMapping("/sample/sample3")
     public String getPage3(Model model) {
 
-       model.addAttribute("msg","반갑습니다.");
+        model.addAttribute("msg", "반갑습니다.");
 
-       return "sample/sample2";// /WEB-INF/views/sample/sample2.jsp
+        return "sample/sample2";// /WEB-INF/views/sample/sample2.jsp
     }
-
-
-
 
 
 }

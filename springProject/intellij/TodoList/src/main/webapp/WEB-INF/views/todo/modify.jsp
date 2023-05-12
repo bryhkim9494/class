@@ -12,6 +12,5 @@
 </head>
 <body>
 <h1>modifyData : ${modifyData}</h1>
-<%--<h1></h1>--%>
 </body>
 </html>
