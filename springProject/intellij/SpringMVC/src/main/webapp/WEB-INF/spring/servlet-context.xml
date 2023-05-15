@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:mvc="http://www.springframework.org/schema/mvc"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns="http://www.springframework.org/schema/beans"
-             xmlns:context="http://www.springframework.org/schema/context"
-             xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -15,7 +15,11 @@
     <mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
     <!--/css/default.css-->
     <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
-    
+
+
+    <!-- /uploadfile/report/erd.PNG -->
+    <mvc:resources mapping="/uploadfile/**" location="/uploadfile"></mvc:resources>
+
     <!--view 설정-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"></property>
@@ -26,22 +30,41 @@
     <!--Controller에서 view 지정 "member/loginForm"-->
     <!--Controller에서 prefix와 suffix를 지우고사용-->
 
+
+
+
+
+    <!--파일 업로드를 위해서는 multipartResolver 등록이 필수임!!-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"/>
+    </bean>
+
+    <!-- 회원 로그인 여부 체크 interceptor를 등록해주는 설정 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/mypage/**"/>
+            <mvc:exclude-mapping path="/mypage/help/**"/>
+            <bean class="com.hi.app.interceptor.AuthCheckInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+
+
+
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="formatters">
+            <set>
+                <bean class="com.hi.app.formatter.LocalDateFormatter"/>
+            </set>
+        </property>
+    </bean>
+    <!-- formatter 등록 해주는 설정 -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+
     <!--bean 자동 등록 설정: @Controller, @Service, @Repository -->
     <context:component-scan base-package="com.hi.app"></context:component-scan>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </beans>
