@@ -15,4 +15,16 @@
         select * from dept where deptno = #{no}
 
     </select>
+    <insert id="insertDept" parameterType="com.hi.deptspring.deptspring.domain.DeptRegistRequest">
+        insert into dept (dname, loc) values (#{dname}, #{loc})
+    </insert>
+
+    <update id="updateDept" parameterType="com.hi.deptspring.deptspring.domain.DeptDTO">
+        update dept set dname = #{dname}, loc = #{loc} where deptno = #{deptno}
+    </update>
+
+    <delete id="deleteDept">
+
+        delete from dept where deptno=#{no}
+    </delete>
 </mapper>
