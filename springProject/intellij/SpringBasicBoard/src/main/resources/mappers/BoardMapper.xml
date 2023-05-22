@@ -35,17 +35,17 @@
         <where>
             <if test="searchType != null and keyword != null">
                 <if test="searchType == 'title'">
-                    title like concat('%', '#{keyword}','%')
+                    title like concat('%', #{keyword},'%')
 
                 </if>
 
                 <if test="searchType == 'content'">
-                    content like concat('%', '#{keyword}','%')
+                    content like concat('%', #{keyword},'%')
 
                 </if>
 
                 <if test="searchType == 'writer'">
-                    writer like concat('%', '#{keyword}','%')
+                    writer like concat('%', #{keyword},'%')
 
                 </if>
             </if>

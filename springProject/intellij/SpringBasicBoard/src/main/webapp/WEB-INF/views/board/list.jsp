@@ -20,9 +20,17 @@
 <body>
 <h1>게시판</h1>
 <hr>
+<div>
+    로그인 정보 : ${loginInfo}
+
+<a href="/logout">logout</a>
+    
+</div>
+<hr>
+
 <%--${page}--%>
 <div class="searchArea">
-    <form >
+    <form>
         <select name="searchType">
             <option value="title">제목</option>
             <option value="content">내용</option>
@@ -70,7 +78,6 @@
     </c:if>
 
 </div>
-
 
 
 <a href="/board/write">글쓰기</a>
