@@ -18,7 +18,7 @@
     <table>
         <tr>
             <td>작성자</td>
-            <td><input type="text" name="writer" required></td>
+            <td><input type="text" name="writer" required value="${loginInfo.idx}"></td>
 
         </tr>
         <tr>

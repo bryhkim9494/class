@@ -22,9 +22,7 @@
 <hr>
 <div>
     로그인 정보 : ${loginInfo}
-
-<a href="/logout">logout</a>
-    
+    <a href="/logout">logout</a>
 </div>
 <hr>
 

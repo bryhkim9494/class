@@ -19,6 +19,7 @@
 </head>
 <body>
 <h1>게시글 보기</h1>
+<hr>  ${loginInfo}
 <hr>
 
 <table border="1">

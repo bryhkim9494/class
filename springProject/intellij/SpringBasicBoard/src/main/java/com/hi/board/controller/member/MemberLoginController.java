@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/login")
 @Log4j2
 public class MemberLoginController {
-//    @Autowired
+    @Autowired
     private MemberLoginService loginService;
     @GetMapping
     public String loginForm() {
