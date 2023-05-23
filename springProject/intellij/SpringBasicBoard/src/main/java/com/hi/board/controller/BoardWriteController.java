@@ -32,9 +32,8 @@ public class BoardWriteController {
         log.info(board);
         writeService.writeBoard(board, request);
 
-        return "redirect:/board/list";
+         return "redirect:/board/list";
     }
-
 
 
 }

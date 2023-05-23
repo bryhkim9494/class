@@ -19,7 +19,8 @@
 </head>
 <body>
 <h1>게시글 보기</h1>
-<hr>  ${loginInfo}
+<hr>
+${loginInfo}
 <hr>
 
 <table border="1">
@@ -33,8 +34,8 @@
         <td>${article.title}</td>
     </tr>
     <tr>
-    <td>내용</td>
-    <td>${article.content}</td>
+        <td>내용</td>
+        <td>${article.content}</td>
     </tr>
 
     <tr>
@@ -45,7 +46,8 @@
     <c:if test="${article.file ne null}">
 
         <tr><%--tr은 행을 나눔--%>
-            <td>첨부파일<br>(이미지)</td> <%--td가 칸을 나눈거--%>
+            <td>첨부파일<br>(이미지)</td>
+                <%--td가 칸을 나눈거--%>
             <td><img src="/uploadfile/board/${article.file}" width="300">
             </td>
         </tr>
@@ -60,13 +62,12 @@
     </tr>
 
 
-
-
-
 </table>
 <a href="/board/list">LIST</a>
-<a href="/board/modify?bno=${article.bno}">수정</a>
-<a href="/board/delete?bno=${article.bno}">삭제</a>
+<c:if test="${loginInfo.idx eq article.memidx}">
+    <a href="/board/modify?bno=${article.bno}">수정</a>
+    <a href="/board/delete?bno=${article.bno}">삭제</a>
+</c:if>
 
 
 </body>

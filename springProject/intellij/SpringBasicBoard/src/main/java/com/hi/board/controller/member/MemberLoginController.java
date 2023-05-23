@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 public class MemberLoginController {
     @Autowired
     private MemberLoginService loginService;
+
     @GetMapping
     public String loginForm() {
         log.info("GET /login");
@@ -24,14 +25,14 @@ public class MemberLoginController {
     }
 
     @PostMapping
-    public String login(@RequestParam("uid") String uid, @RequestParam("pw") String pw, HttpSession session) {
+    public String login(@RequestParam("uid") String uid, @RequestParam("pw") String pw, HttpSession session) { // *HttpSession session = 현재 세션
 
         // 서비스로 uid, pw, 현재 세션(로그인이 되었을 때 속성에 회원 정보를 저장) 전달
 
         boolean result = loginService.login(uid, pw, session);
         // 서비스 : 로그인 처리 ->응답(로그인 성공, 실패)
 
-        if(result) {
+        if (result) {
             return "redirect:/board/list";
         }
         return "redirect:/login";

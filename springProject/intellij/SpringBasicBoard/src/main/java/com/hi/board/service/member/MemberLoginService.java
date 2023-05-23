@@ -15,8 +15,8 @@ public class MemberLoginService {
 
     public boolean login(String uid, String pw, HttpSession session) {
         // uid, pw -> selectByUidPw(uid,pw) => 결과값은 null or MemberDTO
-
         MemberDTO member = memberMapper.selectByUidPw(uid, pw);
+
         if (member != null) {
             // 회원이다 !!! => 로그인 처리 해줌
             session.setAttribute("loginInfo", member);

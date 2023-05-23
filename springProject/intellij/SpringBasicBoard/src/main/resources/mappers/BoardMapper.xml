@@ -4,7 +4,8 @@
 
 <mapper namespace="com.hi.board.mapper.BoardMapper">
     <select id="selectList" parameterType="com.hi.board.domain.PageOption" resultType="com.hi.board.domain.BoardDTO">
-        select * from tbl_board
+        select bno, title, content, file, uname as writer, memidx, regdate, updatedate
+        from tbl_board b, member m
         <where>
 
             <if test="searchOption.searchType != null and searchOption.keyword != null">
@@ -22,6 +23,8 @@
                 </if>
 
             </if>
+            and b.memidx=m.idx
+
         </where>
         order by bno desc limit #{startNum}, #{count}
     </select>
@@ -57,16 +60,21 @@
     <select id="selectAll" resultType="com.hi.board.domain.BoardDTO">
         select * from tbl_board
     </select>
-    <select id="selectByBno" resultType="com.hi.board.domain.BoardDTO">
-        select * from tbl_board where bno = #{bno} <!--#{number}나 아무이름 써도 됨-->
 
+    <select id="selectByBno" resultType="com.hi.board.domain.BoardDTO">
+        select bno, title, content, file, uname as writer, memidx, regdate, updatedate
+        from tbl_board b, member m
+        where bno = #{bno} <!--#{number}나 아무이름 써도 됨--> and b.memidx=m.idx
     </select>
+
     <insert id="insertBoard" parameterType="com.hi.board.domain.RequestRegBoard">
         <!--file : 파일의 이름을 저장하는 문자열-->
-        insert into tbl_board (title, content, writer ,file) values (#{title}, #{content}, #{writer}, #{filename})
+        <!-- writer -> memidx로 변경 -->
+        insert into tbl_board (title, content, memidx ,file) values (#{title}, #{content}, #{memidx}, #{filename})
     </insert>
+
     <update id="updateBoard" parameterType="com.hi.board.domain.RequestModifyRequest">
-        update tbl_board set title=#{title}, content=#{content} , writer=#{writer}, file=#{filename},updatedate=now()
+        update tbl_board set title=#{title}, content=#{content} , file=#{filename},updatedate=now()
         where bno=#{bno}
     </update>
     <delete id="deleteBoard">

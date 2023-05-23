@@ -16,11 +16,17 @@
 <form method="post" enctype="multipart/form-data">
 
     <table>
+        <%--
+            <회원만 작성 가능한 게시판으로 변경해야해서 주석처리해놓음>
         <tr>
             <td>작성자</td>
-            <td><input type="text" name="writer" required value="${loginInfo.idx}"></td>
+            <td><input type="text" name="writer" required></td>
 
         </tr>
+
+        --%>
+            <input type="hidden" name="memidx" value="${loginInfo.idx}">
+
         <tr>
             <td>제목</td>
             <td><input type="text" name="title" required></td>
